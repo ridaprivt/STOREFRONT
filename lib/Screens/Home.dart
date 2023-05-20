@@ -8,6 +8,7 @@ import 'package:kf_drawer/kf_drawer.dart';
 import 'Beverages.dart';
 import 'Snack.dart';
 import 'Sweet.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Home extends KFDrawerContent {
   final List<String> imagePaths = [
@@ -33,6 +34,15 @@ class Home extends KFDrawerContent {
 }
 
 class _HomeState extends State<Home> {
+  void launchMaps() async {
+    final url = 'https://goo.gl/maps/HSPVeAqHbofgHZcQ9';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -194,21 +204,31 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                             SizedBox(height: 1.h),
-                            Text(
-                              'Wattala, Sri Lanka',
-                              style: GoogleFonts.josefinSans(
-                                fontSize: 15.sp,
-                                fontWeight: FontWeight.w300,
-                                letterSpacing: 1,
-                                color: Colors.black,
+                            GestureDetector(
+                              onTap: () {
+                                launchMaps();
+                              },
+                              child: Text(
+                                'Islamabad, Pakistan',
+                                style: GoogleFonts.josefinSans(
+                                  fontSize: 15.sp,
+                                  fontWeight: FontWeight.w300,
+                                  letterSpacing: 1,
+                                  color: Colors.black,
+                                ),
                               ),
                             ),
                           ],
                         ),
                         Spacer(),
-                        Image.asset(
-                          'assets/arr.png',
-                          height: 4.h,
+                        GestureDetector(
+                          onTap: () {
+                            launchMaps();
+                          },
+                          child: Image.asset(
+                            'assets/arr.png',
+                            height: 4.h,
+                          ),
                         )
                       ],
                     ),

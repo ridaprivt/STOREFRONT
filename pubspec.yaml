@@ -46,6 +46,7 @@ dependencies:
   firebase_core_platform_interface: ^4.7.0
   image_picker: ^0.8.7+5
   path_provider: ^2.0.6
+  url_launcher: ^6.0.0
 
 dev_dependencies:
   flutter_test:
