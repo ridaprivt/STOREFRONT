@@ -16,13 +16,11 @@ class Home extends KFDrawerContent {
     "assets/ice.png",
     "assets/tea.png",
   ];
-
   final List<String> itemTexts = [
     '12',
     '42',
     '42',
   ];
-
   final List<String> categoryTexts = [
     'Sweets',
     'Bevarages',

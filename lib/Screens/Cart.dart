@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:kf_drawer/kf_drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter/widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:storefront/Screens/CheckOut.dart';
+import 'CheckOut.dart';
 
 class Cart extends KFDrawerContent {
   @override
@@ -112,7 +114,10 @@ class CartState extends State<Cart> {
         child: FloatingActionButton.extended(
           backgroundColor: Color(0xFFFF00C7),
           elevation: 6.0,
-          onPressed: () {},
+          onPressed: () {
+            Get.to(CheckoutScreen(
+                cartItems: itemList, totalPrice: calculateTotalPrice()));
+          },
           label: Padding(
             padding: EdgeInsets.fromLTRB(5.w, 3.h, 5.w, 3.h),
             child: Text(
@@ -129,12 +134,12 @@ class CartState extends State<Cart> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: ListView(
         padding: EdgeInsets.fromLTRB(5.w, 2.h, 5.w, 2.h),
-        children: itemList.map((item) => buildCartItem(item)).toList(),
+        children: itemList.map((item) => buildCartItem(context, item)).toList(),
       ),
     );
   }
 
-  Widget buildCartItem(CartItem item) {
+  Widget buildCartItem(BuildContext context, CartItem item) {
     return Container(
       margin: EdgeInsets.only(bottom: 2.h),
       padding: EdgeInsets.fromLTRB(3.w, 1.5.h, 4.w, 1.5.h),

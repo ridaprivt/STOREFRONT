@@ -8,10 +8,15 @@ import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'Screens/SplashScreen.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Stripe.publishableKey =
+      'pk_test_51NFBVUBiSKRu4PPuxfeulpwb15Ax9Ji21cay5IG8sucS5zzWq0gwelqrAuRzaeJ3GQK2KvmdXWEBmxztV9nbCu4P00YlvDqDVG';
+
   await Firebase.initializeApp();
+  await Stripe.instance.applySettings();
   runApp(MyApp());
 }
 
