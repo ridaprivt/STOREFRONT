@@ -82,7 +82,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             Padding(
               padding: EdgeInsets.only(bottom: 3.h),
               child: Text(
-                'Delivery Charges: 100 PKR',
+                'Delivery Charges: \$ 10',
                 textAlign: TextAlign.center,
                 style: GoogleFonts.josefinSans(
                   fontSize: 15.sp,

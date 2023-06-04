@@ -61,7 +61,7 @@ class _PaymentState extends State<Payment> {
           Padding(
             padding: EdgeInsets.only(bottom: 2.h),
             child: Text(
-              'Delivery Charges: 100 PKR',
+              'Delivery Charges: \$ 10',
               textAlign: TextAlign.center,
               style: GoogleFonts.josefinSans(
                 fontSize: 15.sp,
